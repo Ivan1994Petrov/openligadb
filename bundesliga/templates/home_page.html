@@ -87,14 +87,36 @@
                 <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
                             aria-expanded="false" aria-controls="collapseOne">
-                        Collapsible Group Item #1
+                        All Matches
                     </button>
                 </h2>
             </div>
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
+                         <table class="table table-striped">
+                                <thead>
+                                <tr>
 
+                                    <th scope="col">Home</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Away</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if all_teams %}
+                                {% for h, a, d in all_teams %}
+                                <tr>
+                                    <td scope="row">{{h}}</td>
+                                    <td>{{d}}</td>
+                                    <td>{{a}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+
+
+                                </tbody>
+                            </table>
 
                         </tbody>
                     </table>
@@ -107,19 +129,37 @@
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
+                        All Upcoming Matches
                     </button>
                 </h2>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                     <table class="table table-striped">
+                                <thead>
+                                <tr>
+
+                                    <th scope="col">Home</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Away</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if all_upcoming_maches %}
+                                    {% for h, a, d in all_upcoming_maches %}
+                                    <tr>
+                                        <td scope="row">{{h}}</td>
+                                        <td>{{d}}</td>
+                                        <td>{{a}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <h3>Sorry, we don't have upcoming matches for thsis season</h3>
+                                {% endif %}
+
+
+                                </tbody>
+                            </table>
                 </div>
             </div>
         </div>
@@ -128,19 +168,38 @@
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
+                        Win/Loss Ratio
                     </button>
                 </h2>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                    <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Team</th>
+                                    <th scope="col">Wins</th>
+                                    <th scope="col">Losses</th>
+                                    <th scope="col">Draws</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if all_teams_ratio %}
+                                    {% for t,w ,l ,d in all_teams_ratio %}
+                                    <tr>
+                                        <td scope="row">{{t}}</td>
+                                        <td>{{w}}</td>
+                                        <td>{{l}}</td>
+                                        <td>{{d}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <h3>Sorry, we don't have upcoming matches for thsis season</h3>
+                                {% endif %}
+
+
+                                </tbody>
+                            </table>
                 </div>
             </div>
         </div>
@@ -191,6 +250,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                {% if all_teams %}
                                 {% for h, a, d in all_teams %}
                                 <tr>
                                     <td scope="row">{{h}}</td>
@@ -198,6 +258,7 @@
                                     <td>{{a}}</td>
                                 </tr>
                                 {% endfor %}
+                                {% endif %}
 
 
                                 </tbody>
@@ -257,30 +318,10 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="">
 
 
-                            <!--<table class="table table-striped">-->
-                                <!--<thead>-->
-                                <!--<tr>-->
 
-                                    <!--<th scope="col">Home</th>-->
-                                    <!--<th scope="col">Date</th>-->
-                                    <!--<th scope="col">Away</th>-->
-                                <!--</tr>-->
-                                <!--</thead>-->
-                                <!--<tbody>-->
-                                <!--{% for uh, ua, ud in all_upcoming_maches %}-->
-                                <!--<tr>-->
-                                    <!--<td scope="row">{{uh}}</td>-->
-                                    <!--<td>{{ud}}</td>-->
-                                    <!--<td>{{ua}}</td>-->
-                                <!--</tr>-->
-                                <!--{% endfor %}-->
-
-
-                                <!--</tbody>-->
-                            <!--</table>-->
 
 
                         </div>
@@ -304,11 +345,43 @@
     </div>
 </div>
 
-<ul>
-    {for h, d, a in all_upcoming_maches}
-    <li>{{h}} -- {{d}} -- {{a}}</li>
-    {endfor}
-</ul>
+
+
+
+
+<!-- Large modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <table class="table table-striped">
+                                <thead>
+                                <tr>
+
+                                    <th scope="col">Home</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Away</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if all_upcoming_maches %}
+                                {% for uh, ua, ud in all_upcoming_maches %}
+                                <tr>
+                                    <td scope="row">{{uh}}</td>
+                                    <td>{{ud}}</td>
+                                    <td>{{ua}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+
+                                </tbody>
+                            </table>
+    </div>
+  </div>
+</div>
+
+
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
 
