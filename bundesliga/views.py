@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-import time
 
 from .services import get_upcoming_matches
 
@@ -44,7 +42,7 @@ def bundeslig_detail(request):
         all_wins = []
         all_losses = []
         all_drows = []
-        print(type(dict))
+
         for key in dict.keys():
             all_teams.append(key)
             all_wins.append(dict[key].win)
@@ -52,10 +50,10 @@ def bundeslig_detail(request):
             all_drows.append(dict[key].draw)
         return zip(all_teams, all_wins, all_losses, all_drows)
 
-    print(list(get_zipped_info_for_win_loss(return_from_all_upcoming_maches['all_teams_ratio'])))
 
+    print(get_zipped_info_for_all_matches(SELECTORS['all-matches-teams']))
     return render(request, 'home_page.html', {
-        'all_teams': get_zipped_info_for_all_matches(SELECTORS['all-matches-teams']),
-        'all_upcoming_maches': get_zipped_info_for_all_upcoming_matches(SELECTORS['all-upcoming-maches-teams']),
-        'all_teams_ratio': get_zipped_info_for_win_loss(SELECTORS['all_teams_ratio'])
+        'all_teams': list(get_zipped_info_for_all_matches(SELECTORS['all-matches-teams'])),
+        'all_upcoming_maches': list(get_zipped_info_for_all_upcoming_matches(SELECTORS['all-upcoming-maches-teams'])),
+        'all_teams_ratio': list(get_zipped_info_for_win_loss(SELECTORS['all_teams_ratio']))
     })

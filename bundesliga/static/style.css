@@ -1,0 +1,36 @@
+/*#nav1 {*/
+    /*background-color:#F00; !*whichever you want*!*/
+    /*opacity: 0.5 !important;*/
+/*}*/
+
+.main-title {
+    font-weight: bold;
+}
+
+.main-footer {
+    padding: 40px;
+    background: #007bff;
+    color: white;
+}
+
+.footer-copyright {
+    background: #0534ff;
+}
+
+nav a {
+    color: #007bff !important;
+}
+
+footer a{
+    text-decoration: none !important;
+    color: white;
+}
+
+.matches-blue {
+    background: #007bff;
+}
+
+.btn-white {
+    color: white;
+}
+

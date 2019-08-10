@@ -2,6 +2,8 @@ import requests
 
 def get_upcoming_matches():
 
+    print("I'm working...")
+
     def get_basics_match_info():
         home_team = matches[m]['Team1']['TeamName']
         away_team = matches[m]['Team2']['TeamName']
@@ -17,8 +19,9 @@ def get_upcoming_matches():
 
         def __str__(self):
             return f'win - {self.win}, loss - {self.loss}, draw - {self.draw}'
+
     # get json from url
-    url = 'https://www.openligadb.de/api/getmatchdata/bl1/2018/'
+    url = 'https://www.openligadb.de/api/getmatchdata/bl1/2019/'
     r = requests.get(url)
     matches = r.json()
 
@@ -79,3 +82,4 @@ def get_upcoming_matches():
         'all_upcoming_maches': all_upcoming_maches,
         'all_teams_ratio': all_teams_ratio,
     }
+
