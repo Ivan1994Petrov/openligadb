@@ -3,21 +3,21 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>IPetrov - OpenLigaDB</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'images' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
 
 </head>
 
-
 <body>
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-4 p-lg-8">
-    <a class="navbar-brand" href="#">IPetrov</a>
+    <a class="navbar-brand" href="{% url 'bundeslig' %}">IPetrov</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse d-lg-flex justify-content-end align-items-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'bundeslig' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -40,19 +40,16 @@
     </div>
 </nav>
 
-
-
 <!--Slider-->
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1519823038424-f8dbabca95f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-                     class="d-block w-100" alt="...">
+                <img src="{% static 'images/slider.jpg' %}" class="d-block w-100">
                 <div class="slider carousel-caption d-none d-md-block">
                     <h1 class="main-title d-flex justify-content-left align-items-left">All Matches At One Place</h1>
-                    <p class="d-flex justify-content-left align-items-left">Nulla vitae elit libero, a pharetra augue
-                        mollis interdum.</p>
+                    <p class="d-flex justify-content-left align-items-left">Ipsum is simply dummy text of the printing
+                        and typesetting industry.</p>
                 </div>
             </div>
 
@@ -121,7 +118,6 @@
                         {% endfor %}
                         {% endif %}
 
-
                         </tbody>
                     </table>
 
@@ -163,9 +159,8 @@
                         </tbody>
                     </table>
                     {% else %}
-                    <h3>Sorry, we don't have upcoming matches for this season</h3>
+                    <h3>Sorry, we don't have any upcoming matches for this season</h3>
                     {% endif %}
-
 
                 </div>
             </div>
@@ -209,13 +204,11 @@
                     <h3>We're sorry but the season has not started yet</h3>
                     {% endif %}
 
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
@@ -223,10 +216,8 @@
         <!-- Footer Links -->
         <div class="container-fluid green text-center text-md-left">
 
-            <!-- Grid row -->
             <div class="row">
 
-                <!-- Grid column -->
                 <div class="col-md-6 mt-md-0 mt-3">
 
                     <!-- Content -->
@@ -236,17 +227,13 @@
                         type and scrambled it to make a type specimen book. It has survived not on</p>
 
                 </div>
-                <!-- Grid column -->
 
                 <hr class="clearfix w-100 d-md-none pb-3">
 
-                <!-- Grid column -->
                 <div class="col-md-3 mb-md-0 mb-3">
 
                 </div>
-                <!-- Grid column -->
 
-                <!-- Grid column -->
                 <div class="col-md-3 mb-md-0 mb-3">
 
                     <!-- Links -->
@@ -254,38 +241,31 @@
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">Link 1</a>
+                            <a href="{% url 'season-2018' %}">Season 2018</a>
                         </li>
                         <li>
-                            <a href="#!">Link 2</a>
+                            <a href="{% url 'season-2017' %}">Season 2017</a>
                         </li>
                         <li>
-                            <a href="#!">Link 3</a>
+                            <a href="{% url 'season-2016' %}">Season 2016</a>
                         </li>
                         <li>
-                            <a href="#!">Link 4</a>
+                            <a href="{% url 'season-2015' %}">Season 2015</a>
                         </li>
                     </ul>
 
                 </div>
-                <!-- Grid column -->
 
             </div>
-            <!-- Grid row -->
 
         </div>
-        <!-- Footer Links -->
     </div>
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <a href="#"> IPetrov</a>
     </div>
-    <!-- Copyright -->
 
 </footer>
-
-<!-- Footer -->
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -296,15 +276,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script>
-    fetch('https://www.openligadb.de/api/getmatchdata/bl1/2018/')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (myJson) {
-            console.log(JSON.stringify(myJson));
-        });
-</script>
+
 </body>
+
 </html>
 
